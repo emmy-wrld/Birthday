@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday, Damilola 💖</title>
+
+  <!-- Romantic Font Options -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink:#ff66b2;
+      --purple:#7a4dff;
+      --neon-pink:#ff3cac;
+      --white:#ffffff;
+      --bg:linear-gradient(135deg,rgba(255,102,178,0.12),rgba(122,77,255,0.08));
+      --glass:rgba(255,255,255,0.06);
+      --glass-2:rgba(255,255,255,0.10);
+      --fw:500;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+    html,body{height:100%;background:radial-gradient(circle at 10% 10%,rgba(255,58,130,0.08),transparent 10%),radial-gradient(circle at 90% 90%,rgba(125,82,255,0.05),transparent 12%),var(--bg);color:#111}
+
+    /* SECRET CODE */
+    .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(6px);}
+    .code-card{width:92%;max-width:400px;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 6px 30px rgba(68,11,113,0.12);text-align:center}
+    .code-card h2{font-size:20px;margin-bottom:10px;color:var(--purple)}
+    .code-input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white);outline:none;text-align:center;margin-top:10px}
+    .btn{padding:12px 16px;border-radius:10px;border:none;cursor:pointer;font-weight:600;margin-top:14px}
+    .btn-enter{background:linear-gradient(90deg,var(--neon-pink),var(--purple));color:white;width:100%}
+    .hint{font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px}
+
+    /* SPLASH */
+    .splash{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9998;background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(122,77,255,0.03));backdrop-filter:blur(3px);animation:fadeOut 1s ease forwards;animation-delay:5s;}
+    .splash-card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+      padding:30px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.05);
+      text-align:center;
+      animation:fadeIn 1s ease;
+      font-family: 'Dancing Script', cursive; /* Option 1 */
+      /* font-family: 'Great Vibes', cursive; Option 2 */
+    }
+    .splash-card h1{
+      font-size:36px;
+      color:var(--neon-pink);
+      margin-bottom:12px;
+      letter-spacing:1px;
+    }
+    .splash-card p{
+      font-size:18px;
+      color:#fff;
+      line-height:1.5;
+    }
+
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes fadeOut{to{opacity:0;visibility:hidden}}
+
+    /* MAIN LAYOUT */
+    .container{max-width:480px;margin:20px auto;padding:15px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,var(--neon-pink),var(--purple));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;box-shadow:0 6px 20px rgba(122,77,255,0.18)}
+    .title h3{font-size:18px}
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    .nav-btn{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid transparent;cursor:pointer;font-weight:600;font-size:14px}
+    .nav-btn.active{background:linear-gradient(90deg,rgba(255,60,180,0.12),rgba(122,77,255,0.09));box-shadow:0 6px 18px rgba(122,77,255,0.06);border-color:rgba(255,255,255,0.04)}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 10px 40px rgba(12,8,25,0.06);margin-top:16px}
+    .tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto}
+    .tab{padding:8px 10px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.04);cursor:pointer;white-space:nowrap}
+    .tab.active{background:linear-gradient(90deg,var(--pink),var(--purple));color:white}
+    .letter{font-size:16px;line-height:1.6;color:#111;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.88));padding:16px;border-radius:12px}
+    .track{display:flex;align-items:center;gap:8px;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,0.05);background:var(--glass-2);flex-wrap:wrap}
+    .note-tabs{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto}
+    .note-content{padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(255,255,255,0.9));font-weight:600}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+    .rose{height:120px;border-radius:12px;background-size:cover;background-position:center;border:1px solid rgba(0,0,0,0.06)}
+    footer{margin-top:20px;text-align:center;color:rgba(0,0,0,0.55);font-size:14px}
+
+    /* Scrollbar fix for tabs */
+    .tabs::-webkit-scrollbar, .note-tabs::-webkit-scrollbar {height:6px;}
+    .tabs::-webkit-scrollbar-thumb, .note-tabs::-webkit-scrollbar-thumb {background:rgba(122,77,255,0.3);border-radius:3px;}
+  </style>
+</head>
+<body>
+  <!-- SECRET CODE -->
+  <div class="overlay" id="overlay">
+    <div class="code-card">
+      <h2>Enter secret code to continue</h2>
+      <div style="font-size:14px;color:rgba(255,255,255,0.7)">Type the special name I gave you 💖</div>
+      <input id="secretInput" class="code-input" type="password" placeholder="Secret code" autocomplete="off" />
+      <button id="enterBtn" class="btn btn-enter">Enter</button>
+      <div class="hint">Hint: it's the name I love — Damilola</div>
+      <div id="err" style="color:#ff4d6d;margin-top:8px;display:none"></div>
+    </div>
+  </div>
+
+  <!-- SPLASH -->
+  <div class="splash" id="splash">
+    <div class="splash-card">
+      <h1>Welcome, my love 💕</h1>
+      <p>Enjoy ur day 😘💕</p>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="container" id="mainApp" style="display:none">
+    <header>
+      <div class="brand">
+        <div class="logo">💗</div>
+        <div class="title">
+          <h3>Happy Birthday, Damilola</h3>
+          <p style="color:rgba(0,0,0,0.52)">Made with love 💝</p>
+        </div>
+      </div>
+      <nav id="nav">
+        <button class="nav-btn active" data-page="love">❤️ Love Letter</button>
+        <button class="nav-btn" data-page="music">🎵 Music</button>
+        <button class="nav-btn" data-page="notes">📜 Notes</button>
+        <button class="nav-btn" data-page="gallery">🌹 Gallery</button>
+      </nav>
+    </header>
+
+    <section id="pages">
+      <!-- LOVE -->
+      <div class="card page" id="love" style="display:block">
+        <div class="tabs">
+          <div class="tab active" data-tab="happy">Happy birthday</div>
+        </div>
+        <div class="letter" id="letterContent">
+          Click the <strong>Happy birthday</strong> tab to read your love letter 💌
+        </div>
+      </div>
+
+      <!-- MUSIC -->
+      <div class="card page" id="music" style="display:none">
+        <h3>Play a song</h3>
+        <div class="track">
+          <div class="info">
+            <div style="font-weight:700">Ghost — Justin Bieber</div>
+            <div style="font-size:13px">Click play to listen</div>
+          </div>
+          <div>
+            <audio id="ghost" controls>
+              <source src="/Justin_Bieber_Ghost.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </div>
+        <div class="track">
+          <div class="info">
+            <div style="font-weight:700">Perfect — Ed Sheeran</div>
+            <div style="font-size:13px">Click play to listen</div>
+          </div>
+          <div>
+            <audio id="perfect" controls>
+              <source src="/Ed_Sheeran_Perfect.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTES -->
+      <div class="card page" id="notes" style="display:none">
+        <div class="note-tabs">
+          <button class="tab active" data-note="take">Take care</button>
+          <button class="tab" data-note="eat">Eat on time</button>
+          <button class="tab" data-note="mine">You're mine.... Always</button>
+        </div>
+        <div class="note-content" id="noteContent"></div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="card page" id="gallery" style="display:none">
+        <h3>Roses for you 🌹</h3>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <footer>Made with lots of love 💖</footer>
+  </div>
+
+  <script>
+    const SECRET = 'Damilola';
+    const overlay = document.getElementById('overlay');
+    const secretInput = document.getElementById('secretInput');
+    const enterBtn = document.getElementById('enterBtn');
+    const splash = document.getElementById('splash');
+    const mainApp = document.getElementById('mainApp');
+    const err = document.getElementById('err');
+
+    function showErr(msg){err.style.display='block';err.textContent=msg;}
+    function hideErr(){err.style.display='none';err.textContent='';}
+
+    enterBtn.addEventListener('click', ()=>{
+      const val = secretInput.value.trim();
+      if(!val){showErr('Please enter the code 😊');return}
+      if(val.toLowerCase() === SECRET.toLowerCase()){
+        overlay.style.display='none';
+        splash.style.display='flex';
+        setTimeout(()=>{splash.style.display='none';mainApp.style.display='block';},5000);
+      } else {
+        showErr('Wrong code — try again, my love 💕');
+      }
+    });
+
+    secretInput.addEventListener('keyup',(e)=>{if(e.key==='Enter')enterBtn.click()});
+
+    // Navigation
+    document.querySelectorAll('#nav .nav-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('#nav .nav-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const page=btn.dataset.page;
+        document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+        document.getElementById(page).style.display='block';
+      });
+    });
+
+    // Love Letter
+    const letterTab=document.querySelector('.tab[data-tab="happy"]');
+    const letterContent=document.getElementById('letterContent');
+    const loveMessage=`
+      <h2 style="color:var(--purple);margin-bottom:8px">To Adewole Damilola Success</h2>
+      <p>Happy Birthday, my beautiful Damilola! 🎉🎂</p>
+      <p>It's me, your forever joker and biggest fan. On this special day I pray that God blesses you with laughter, success, endless joy, and the happiest moments you can imagine.</p>
+      <p>Also... I have to confess (playfully 😜): I love you more than I love my phone on 1% battery. You're my favourite notification, and I'm low-key planning to make you my future wife (only half joking 😏💍).</p>
+      <p>Enjoy your day, today is all about you, queen. I love you to the moon and back. 🌙❤️</p>
+      <p style="font-weight:700;margin-top:8px">— Your Future Huband. Emmy Wrld</p>`;
+    letterTab.addEventListener('click',()=>{letterContent.innerHTML=loveMessage;});
+
+    // Notes
+    const noteContent=document.getElementById('noteContent');
+    document.querySelectorAll('#notes .tab').forEach(t=>{
+      t.addEventListener('click',()=>{
+        document.querySelectorAll('#notes .tab').forEach(tt=>tt.classList.remove('active'));
+        t.classList.add('active');
+        const n=t.dataset.note;
+        if(n==='take')noteContent.textContent='Take care — I pray you are always healthy and safe.';
+        if(n==='eat')noteContent.textContent='Eat on time — don’t skip meals, baby. You need that energy.';
+        if(n==='mine')noteContent.textContent='You’re mine.... Always — forever and always, my heart is yours.';
+      });
+    });
+    noteContent.textContent='Take care — I pray you are always healthy and safe.';
+
+    // Roses Gallery
+    const galleryGrid=document.getElementById('galleryGrid');
+    const roseUrls=[
+      '/1759905117625.jpg',
+      '/1759905138182.jpg',
+      '/1759905166562.jpg',
+      '/1759905189506.jpg',
+      '/1759905318136.jpg',
+      '/1759905117625.jpg'
+    ];
+    roseUrls.forEach(u=>{
+      const d=document.createElement('div');d.className='rose';d.style.backgroundImage=`url(${u})`;galleryGrid.appendChild(d);
+    });
+  </script>
+</body>
+</html>
